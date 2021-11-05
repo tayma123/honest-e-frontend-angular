@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="showcase">
+      <header>
+        <h2 >
+         <pre class="logo">                                Welcome To Our WebSite</pre> 
+        </h2>
+      </header>
+      <video src="assets/images/v1.mp4" muted loop autoplay></video>
+    </div>
+<br><br><br><br><br> <br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br>
+
+<div class="analyse" >
+  <div class="row">
+    <div class="col-md-6">
+       <div class="card m-b-30">
+          <div class="card-body row">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Object:catastrophic service</strong></li>
+            <li class="list-group-item"><strong>Subject:Unfortunately ,your product has not performed well  because   the service wasn’t performed correctly, I was billed the wrong amount, or something was not disclosed clearly</strong>  </li>
+            <li class="list-group-item" class="rating"><!--
+            --><a href="#5" title="Donner 5 étoiles">☆</a><!--
+            --><a href="#4" title="Donner 4 étoiles">☆</a><!--
+            --><a href="#3" title="Donner 3 étoiles">☆</a><!--
+            --><a href="#2" title="Donner 2 étoiles">☆</a><!--
+            --><a href="#1" title="Donner 1 étoile">☆</a> </li>
+         
+            <style>.rating a {
+              color: #aaa;
+              text-decoration: none;
+              font-size: 3em;
+              transition: color .4s;
+            }
+            .rating a:hover,
+            .rating a:focus {
+              color: orange;
+              cursor: pointer;
+            }
+            </style>
+          </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card m-b-30">
+             <div class="card-body row">
+             <ul class="list-group list-group-flush">
+               <li class="list-group-item"><strong>Object: You Should Offer Alternative Payment Options</strong> </li>
+               <li class="list-group-item"><strong>Subject: you must change your choice of payment or add another because not all people have a paypal card to pay</strong>  </li>
+               <li class="list-group-item" class="rating"><!--
+              --><a href="#5" title="Donner 5 étoiles">☆</a><!--
+              --><a href="#4" title="Donner 4 étoiles">☆</a><!--
+              --><a href="#3" title="Donner 3 étoiles">☆</a><!--
+              --><a href="#2" title="Donner 2 étoiles">☆</a><!--
+              --><a href="#1" title="Donner 1 étoile">☆</a> </li>
+           
+              <style>.rating a {
+                color: #aaa;
+                text-decoration: none;
+                font-size: 3em;
+                transition: color .4s;
+              }
+              .rating a:hover,
+              .rating a:focus {
+                color: orange;
+                cursor: pointer;
+              }
+              </style>
+            </ul>
+               </div>
+             </div>
+           </div>
+      </div>
+    </div>
+
+<br><br><br>
+<button (click)="getAllComplaints()" class="btn btn-dark" >
+Complaints List
+</button>
+
+<div class="analyse" >
+<div class="row">
+<div *ngFor="let complaint of complaints" class="col-md-6">
+   <div class="card m-b-30">
+      <div class="card-body row">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Object:</strong> {{ complaint.object }}</li>
+        <li class="list-group-item"><strong>Subject:</strong>  {{ complaint.subject }}</li>
+        <li class="list-group-item" class="rating"><!--
+        --><a href="#5" title="Donner 5 étoiles">☆</a><!--
+        --><a href="#4" title="Donner 4 étoiles">☆</a><!--
+        --><a href="#3" title="Donner 3 étoiles">☆</a><!--
+        --><a href="#2" title="Donner 2 étoiles">☆</a><!--
+        --><a href="#1" title="Donner 1 étoile">☆</a> </li>
+     
+        <style>.rating a {
+          color: #aaa;
+          text-decoration: none;
+          font-size: 3em;
+          transition: color .4s;
+        }
+        .rating a:hover,
+        .rating a:focus {
+          color: orange;
+          cursor: pointer;
+        }
+        </style>
+      </ul>
+   </div>
+</div>
+</div>
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br><br>
+    <h1 class="articles">Our Galerie</h1>
+    <div class="card-group">
+        
+      <div class="card">
+        <img
+          src="assets/images/i.jpg"
+          height="300"
+          width="616"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="assets/images/im3.jpg"
+          height="300"
+          width="616"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </div>
+      <div class="card">
+        <img
+          src="assets/images/im2.jpg"
+          height="300"
+          width="616"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title"> </h5>
+          
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </div>
+    </div>
+    
+
+
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <div class="icon">
+          <i class="fas fa-info"></i>
+        </div>
+        <h3>About us</h3>
+        <p class="about">
+        
+        We are pleased to provide our dear customers with a
+        platform to make their complaint safe to allow them to 
+        refund their money and to inform us to correct the defect.
+        all your complaints are welcome. for more information do not hesitate to contact us.
+        </p>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="icon">
+          <i class="fas fa-address-book"></i>
+        </div>
+        <h3>Contact us</h3>
+        <pre class="contact">
+        <i class="fas fa-map-marker-alt"></i> <strong>Adresse :</strong> cité Ones Km 12
+        <i class="fab fa-internet-explorer"></i><strong> SiteWeb :  </strong><a href="#">www.hackaton.tn</a>
+        <i class="fas fa-envelope"></i><strong> Email : </strong><a href="#">contact@hackaton.tn</a>
+        <i class="fas fa-phone"></i><strong> Telephone : </strong>(+216) 74 406 380 - 74 406 381
+        (+216) 74 406 382
+
+    </pre>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="icon">
+          <i class="fas fa-business-time"></i>
+        </div>
+        <h3>our schedules</h3>
+        <pre class="temps">
+            
+        Lundi - Vendredi       07.00 - 19.00
+        <hr>
+        Samedi                 07.00 - 13.00
+
+     </pre>
+      </div>
+    </div>
+
+    <footer>All Right reserved web Master</footer>
+  </body>
+</html>
