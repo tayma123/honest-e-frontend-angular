@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Complaint } from '../model/complaint';
@@ -9,6 +10,7 @@ import { Complaint } from '../model/complaint';
 })
 export class ComplaintsService {
   private host=environment.host;
+  public dataForm:  FormGroup; 
 
   constructor(private http: HttpClient) { }
   public getAllComplaint():Observable<Complaint[]>{
@@ -31,5 +33,9 @@ public getAllComplaints():Observable<Complaint[]>{
         
   return this.http.get<Complaint[]>(this.host+"/complaint/all");
 }  
+public getcomplaintsByType(type:string):Observable<Complaint[]>{
+        
+  return this.http.get<Complaint[]>(`${this.host}/complaint/all/${type}`);
+}
 
 }

@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     {
       if (usr.password==this.user.password){
         this.authService.SignIn(usr);
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/']);
       }
       else
       this.erreur=1;

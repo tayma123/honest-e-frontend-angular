@@ -10,6 +10,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
+   
   }
   
   mat-card {
@@ -32,4 +33,9 @@
     width: 80%;
     margin: 20px auto;
   }
+  .row{
   
+    justify-content: center !important;
+
+    
+  }

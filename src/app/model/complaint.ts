@@ -3,4 +3,5 @@ export class Complaint{
     object:String;
     subject:String;
     email:String;
+    type:String;
 }

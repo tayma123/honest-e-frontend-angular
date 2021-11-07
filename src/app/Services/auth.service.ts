@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class AuthService {
- 
+  user:User;
   public loggedUser: string;
   public lastName: string;
   public firstName: string;
@@ -52,6 +52,12 @@ export class AuthService {
         return false;
     return (this.role.indexOf('ADMIN') >-1) ;
     }
+    isClient():Boolean{
+      console.log("role "+this.role);
+      if (!this.role) //this.roles== undefiened
+          return false;
+      return (this.role.indexOf('CLIENT') >-1) ;
+      }
     logout() {
       this.isloggedIn= false;
       this.loggedUser = undefined;

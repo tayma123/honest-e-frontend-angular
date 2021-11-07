@@ -37,7 +37,7 @@ export class UsersService{
     //concernant le profile
       public getUser_complaints(email:string):Observable<Complaint[]>{
         
-        return this.http.get<Complaint[]>(`${this.host}/complaint//findByUser/${email}`);
+        return this.http.get<Complaint[]>(`${this.host}/complaint/findByUser/${email}`);
     }
     
 

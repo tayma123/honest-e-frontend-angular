@@ -8,13 +8,14 @@ import { UsersComponent } from './components/users/users.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { Home1Component } from './components/home1/home1.component';
 import { ComplaintComponent } from './components/complaint/complaint.component';
+import { ProfilEmployeeComponent } from './components/profil-employee/profil-employee.component';
 
 
 
 
 const routes: Routes = [{ path: "users", component:UsersComponent},
 { path: "", component:Home1Component},{ path: "login", component:LoginComponent},{path: 'register', component: RegisterComponent}
-,{ path: "profile", component:ProfileComponent},{ path: "complaint", component:ComplaintComponent}];
+,{ path: "profile", component:ProfileComponent},{ path: "complaint", component:ComplaintComponent},{ path: "agent", component:ProfilEmployeeComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

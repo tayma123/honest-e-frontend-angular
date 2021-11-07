@@ -1,0 +1,74 @@
+<table class="table table-hover table-striped">
+    <thead>
+      <th><strong>firstName</strong></th>
+      <th><strong>lasttName</strong></th>
+      <th><strong>Email</strong></th>
+      <th><strong>Phone</strong></th>
+      <th><strong>Password</strong></th>
+      <th><strong>Role</strong></th>
+    </thead>
+    <tr>
+      <td>{{ authService?.firstName }}</td>
+      <td>{{ authService?.lastName }}</td>
+      <td>{{ authService?.loggedUser }}</td>
+      <td>{{ authService?.phone }}</td>
+      <td>{{ authService?.password }}</td>
+      <td>{{ authService?.role }}</td>
+    </tr>
+  </table>
+  
+  <button (click)="getType1_complaints()" class="btn btn-dark" id="type1">
+    Complaints For DW
+  </button>
+   
+  <button (click)="getType2_complaints()" class="btn btn-dark" id="type2" >
+    Complaints For 2W2I
+  </button>
+  <button (click)="getType3_complaints()" class="btn btn-dark" id="type3">
+    Complaints For WT
+  </button>
+  <button (click)="getType4_complaints()" class="btn btn-dark" id="type4">
+    Complaints For WC
+  </button>
+
+  <div class="analyse" >
+    <div class="row">
+    <div *ngFor="let complaint of complaints" class="col-md-6">
+       <div class="card m-b-30">
+          <div class="card-body row">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Object:</strong> {{ complaint.object }}</li>
+            <li class="list-group-item"><strong>Subject:</strong>  {{ complaint.subject }}</li>
+            <li class="list-group-item"><strong>Email:</strong>  {{ complaint.email }}</li>
+            <li class="list-group-item"><strong>Type:</strong>  {{ complaint.type }}</li>
+ 
+            <li class="list-group-item" class="rating"><!--
+            --><a href="#5" title="Donner 5 étoiles">☆</a><!--
+            --><a href="#4" title="Donner 4 étoiles">☆</a><!--
+            --><a href="#3" title="Donner 3 étoiles">☆</a><!--
+            --><a href="#2" title="Donner 2 étoiles">☆</a><!--
+            --><a href="#1" title="Donner 1 étoile">☆</a> </li>
+         
+            <style>.rating a {
+              color: #aaa;
+              text-decoration: none;
+              font-size: 3em;
+              transition: color .4s;
+            }
+            .rating a:hover,
+            .rating a:focus {
+              color: orange;
+              cursor: pointer;
+            }
+            </style>
+          </ul>
+       </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    
+      
+
+        

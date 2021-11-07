@@ -16,9 +16,9 @@ import { UsersService } from 'src/app/Services/users.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  @ViewChild("fileUpload", {static: false}) fileUpload: ElementRef;files  = [];  
-  fileName:string;
-  public complaints:Complaint[];
+  @ViewChild("fileUpload", { static: false }) fileUpload: ElementRef; files = [];
+  fileName: string;
+  public complaints: Complaint[];
   selectedFile: File;
   retrievedImage: any;
   base64Data: any;
@@ -27,69 +27,106 @@ export class ProfileComponent implements OnInit {
   imageName: any;
   public deleteComplaint: Complaint;
   public editComplaint: Complaint;
-  
-  erreur=0;
-  constructor(private usersService: UsersService,private complaintsService: ComplaintsService,public authService :AuthService, private router: Router ,private httpClient: HttpClient) { 
-   
+  public editUser: User;
+
+  erreur = 0;
+  constructor(private usersService: UsersService, private complaintsService: ComplaintsService, public authService: AuthService, private router: Router, private httpClient: HttpClient) {
+
   }
 
   ngOnInit(): void {
 
     ;
   }
-  public getUser_complaints():void{
+  public getUser_complaints(): void {
     this.usersService.getUser_complaints(this.authService.loggedUser).subscribe(
-      (Response:Complaint[])=> {
+      (Response: Complaint[]) => {
         console.log(Response);
         this.complaints = Response;
       },
-      (error:HttpErrorResponse)=>{
+      (error: HttpErrorResponse) => {
         alert(error.message);
       });
+  }
+  public onOpenModalC(complaint: Complaint, mode: string): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-target', '#addComplaintModal');
     }
-    public onOpenModalC(complaint: Complaint, mode: string): void {
-      const container = document.getElementById('main-container');
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.style.display = 'none';
-      button.setAttribute('data-toggle', 'modal');
-      if (mode === 'add') {
-        button.setAttribute('data-target', '#addComplaintModal');
+    if (mode === 'edit') {
+      this.editComplaint = complaint;
+      button.setAttribute('data-target', '#updateUserModal');
+    }
+    if (mode === 'delete') {
+      this.deleteComplaint = complaint;
+      button.setAttribute('data-target', '#deleteComplaintModal');
+    }
+    container.appendChild(button);
+    button.click();
+  }
+  public onDeleteComplaint(id: number): void {
+    this.complaintsService.deleteComplaint(id).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getUser_complaints();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
       }
-      if (mode === 'edit') {
-        this.editComplaint= complaint;
-        button.setAttribute('data-target', '#updateUserModal');
+    );
+  }
+  public onAddComplaint(addForm: NgForm): void {
+    document.getElementById('add-complaint-form').click();
+    let a = addForm.value;
+    console.log(addForm.value);
+    let value = (<HTMLSelectElement>document.getElementById('type')).value;
+    console.log(value);
+    a["type"] = value;
+    console.log(a);
+    this.complaintsService.addComplaint(addForm.value).subscribe(
+
+      (response: Complaint) => {
+        console.log(response);
+        this.getUser_complaints();
+        addForm.reset();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        addForm.reset();
       }
-      if (mode === 'delete') {
-        this.deleteComplaint = complaint;
-        button.setAttribute('data-target', '#deleteComplaintModal');
+    );
+  }
+  public onUpdateUser(user: User): void {
+    this.usersService.updateUser(user).subscribe(
+      (response: User) => {
+        console.log(response);
+
+
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
       }
-      container.appendChild(button);
-      button.click();
+    );
+  }
+  public onOpenModal(user: User, mode: string): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-target', '#addUserModal');
     }
-    public onDeleteComplaint(id: number): void {
-      this.complaintsService.deleteComplaint(id).subscribe(
-        (response: void) => {
-          console.log(response);
-          this.getUser_complaints();
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-        }
-      );
+    if (mode === 'edit') {
+      this.editUser = user;
+      button.setAttribute('data-target', '#updateUserModal');
     }
-    public onAddComplaint(addForm: NgForm): void {
-      document.getElementById('add-complaint-form').click();
-      this.complaintsService.addComplaint(addForm.value).subscribe(
-        (response: Complaint) => {
-          console.log(response);
-          this.getUser_complaints();
-          addForm.reset();
-        },
-        (error: HttpErrorResponse) => {
-          alert(error.message);
-          addForm.reset();
-        }
-      );
-    }
- }
+
+    container.appendChild(button);
+    button.click();
+  }
+}

@@ -11,12 +11,11 @@
     />
   </head>
   <body>
-    <div class="container">
-      <img src="assets/images/complaint.jpg" alt="" class="img">
+      <img src="assets/images/back.jpg" alt="" class="img">
       
 
       <div class="container-form">
-        <form #addForm="ngForm" (ngSubmit)="onAddComplaint(addForm)">
+        <form #addForm="ngForm" (ngSubmit)="onAddComplaint(addForm)" >
           <h2 class="heading heading-yellow">Complaints</h2>
 
           <div class="form-group">
@@ -31,30 +30,46 @@
               required
             />
           </div>
+          <div [formGroup]="this.crudApi.dataForm"  >
+            <label>Type </label>
+            <select
+            name="type"
+              formControlName="type"
+              id="type"
+              class="form-control"
+            >
+              
+              <option value="DamagedWare">Damaged Ware</option>
+              <option value="WrongWireInsertionInComponent">Wrong WireInsertion In Component</option>
+              <option value="WrongTapping">Wrong Tapping</option>
+              <option value="WrongCrimping">Wrong Crimping</option>
+            </select>
+          </div>
           <div class="form-group">
-            <label for="object">Object</label>
+            <label for="object">Subject</label>
             <input
               type="text"
               ngModel
               name="object"
               class="form-control"
               id="object"
-              placeholder="Object"
+              placeholder="Sujbect"
               required
             />
           </div>
           <div class="form-group">
-            <label for="subject">Sujbect</label>
+            <label for="subject">Description</label>
             <input
               type="text"
               ngModel
               name="subject"
               class="form-control"
               id="subject"
-              placeholder="subject"
+              placeholder="Description"
               required
             />
           </div>
+        
 
       
           <div class="modal-footer">
@@ -63,7 +78,7 @@
          </div>
         </form>
       </div>
-    </div>
+    
   </body>
 </html>
 

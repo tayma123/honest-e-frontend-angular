@@ -9,10 +9,10 @@
       </li>
       
       <li class="nav-item">
-        <a class="nav-link" routerLink="/users" *ngIf="authService.isAdmin()"  style="color:white">Users</a>
+        <a class="nav-link" routerLink="/users" *ngIf="authService.isAdmin()|| authService.isAdmin()"  style="color:white">Users</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/complaint"  style="color:white">complaint</a>
+        <a class="nav-link" routerLink="/complaint"  style="color:white">Complaint</a>
       </li>
       
       <li class="nav-item" >
@@ -22,7 +22,10 @@
  
      
       <li class="nav-item" >
-        <a class="nav-link"  routerLink="/profile" style="color:white" *ngIf="authService.isloggedIn" >Profil</a>
+        <a class="nav-link"  routerLink="/profile" style="color:white" *ngIf="authService.isloggedIn && authService.isClient()" >Profil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/agent" *ngIf="authService.isAgent() || authService.isAdmin() "  style="color:white">Profil</a>
       </li>
       
   

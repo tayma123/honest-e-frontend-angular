@@ -1,5 +1,5 @@
 <div>
-   <a class="nav-link" *ngIf="authService.isAdmin()||authService.isAgent()" (click)="onOpenModal(null, 'add')" align="right">Add User <span class="sr-only">(current)</span></a>
+   <a class="btn"  id="add" class="btn btn-secondary tooltips" *ngIf="authService.isAdmin()||authService.isAgent()" (click)="onOpenModal(null, 'add')" align="right">Add User <span class="sr-only">(current)</span></a>
 </div>
   <div class="container" id="main-container">
   <div class="row">
@@ -16,7 +16,7 @@
           </ul>
           <div class="card-body" *ngIf="authService.isAdmin()||authService.isAgent()">
              <div class="float-right btn-group btn-group-sm"  >
-                <a     class="btn btn-primary tooltips" (click)="onOpenModal(user, 'edit')"  data-placement="top" data-original-title="Edit">Edit<i class="fa fa-pencil"></i> </a>
+                <a     class="btn btn-dark tooltips" (click)="onOpenModal(user, 'edit')"  data-placement="top" data-original-title="Edit">Edit<i class="fa fa-pencil"></i> </a>
                 <a     (click)="onOpenModal(user, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete">Delete<i class="fa fa-times"></i></a>
              </div>
           </div>
@@ -64,7 +64,7 @@
             </div>
             <div class="modal-footer">
                <button type="button" id="add-user-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
-               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+               <button [disabled]="addForm.invalid" type="submit" class="btn btn-dark" >Save changes</button>
             </div>
             </form>
          </div>
@@ -114,7 +114,7 @@
                 
                 <div class="modal-footer">
                    <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-                   <button (click)="onUpdateUser(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+                   <button (click)="onUpdateUser(editForm.value)" data-dismiss="modal" class="btn btn-dark" >Save changes</button>
                 </div>
              </form>
           </div>

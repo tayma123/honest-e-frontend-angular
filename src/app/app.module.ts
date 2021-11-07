@@ -23,6 +23,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { Home1Component } from './components/home1/home1.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ComplaintComponent } from './components/complaint/complaint.component';
+import { ProfilEmployeeComponent } from './components/profil-employee/profil-employee.component';
 
 
 
@@ -40,6 +41,7 @@ import { ComplaintComponent } from './components/complaint/complaint.component';
     ProfileComponent,
     Home1Component,
     ComplaintComponent,
+    ProfilEmployeeComponent,
    
  
     
